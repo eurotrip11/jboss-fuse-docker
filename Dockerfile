@@ -7,7 +7,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends procps openjdk-
 MAINTAINER Giuseppe Trisciuoglio <giuseppe.trsciuoglio@gmail.com>
 
 # Set the FUSE_VERSION env variable
-ENV FUSE_VERSION 6.2.0.redhat-128
+#ENV FUSE_VERSION=6.1.0.redhat-379
+ENV FUSE_VERSION=6.1.1.redhat-423
+#ENV FUSE_VERSION 6.2.0.redhat-133
 ENV FUSE_ARTIFACT_ID=jboss-fuse-full
 ENV FUSE_DISTRO_URL=http://origin-repository.jboss.org/nexus/content/groups/ea/org/jboss/fuse/$FUSE_ARTIFACT_ID/$FUSE_VERSION/$FUSE_ARTIFACT_ID-$FUSE_VERSION.zip
 

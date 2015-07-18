@@ -11,7 +11,8 @@ MAINTAINER Giuseppe Trisciuoglio <giuseppe.trsciuoglio@gmail.com>
 ENV FUSE_VERSION=6.1.1.redhat-423
 #ENV FUSE_VERSION 6.2.0.redhat-133
 ENV FUSE_ARTIFACT_ID=jboss-fuse-full
-ENV FUSE_DISTRO_URL=http://origin-repository.jboss.org/nexus/content/groups/ea/org/jboss/fuse/$FUSE_ARTIFACT_ID/$FUSE_VERSION/$FUSE_ARTIFACT_ID-$FUSE_VERSION.zip
+ENV FUSE_DISTRO_URL=https://repository.jboss.org/nexus/content/groups/ea/org/jboss/fuse/$FUSE_ARTIFACT_ID/$FUSE_VERSION/$FUSE_ARTIFACT_ID-$FUSE_VERSION.zip
+#ENV FUSE_DISTRO_URL=http://origin-repository.jboss.org/nexus/content/groups/ea/org/jboss/fuse/$FUSE_ARTIFACT_ID/$FUSE_VERSION/$FUSE_ARTIFACT_ID-$FUSE_VERSION.zip
 
 
 ENV JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk-amd64
@@ -24,13 +25,13 @@ RUN cd /opt/jboss
 
 # Download and extract the distro
 RUN curl -O $FUSE_DISTRO_URL
-RUN unzip $FUSE_ARTIFACT_ID-$FUSE_VERSION.zip -d jboss-fuse-$FUSE_VERSION
+RUN unzip $FUSE_ARTIFACT_ID-$FUSE_VERSION.zip -d /opt/jboss/jboss-fuse-$FUSE_VERSION
 RUN rm $FUSE_ARTIFACT_ID-$FUSE_VERSION.zip
-RUN mv jboss-fuse-$FUSE_VERSION jboss-fuse
+RUN mv /opt/jboss/jboss-fuse-$FUSE_VERSION /opt/jboss/jboss-fuse
 RUN chmod a+x jboss-fuse/bin/*
-RUN rm jboss-fuse/bin/*.bat jboss-fuse/bin/start jboss-fuse/bin/stop jboss-fuse/bin/status jboss-fuse/bin/patch
-RUN rm -rf jboss-fuse/extras
-RUN rm -rf jboss-fuse/quickstarts
+RUN rm /opt/jboss/jboss-fuse/bin/*.bat /opt/jboss/jboss-fuse/bin/start /opt/jboss/jboss-fuse/bin/stop /opt/jboss/jboss-fuse/bin/status /opt/jboss/jboss-fuse/bin/patch
+RUN rm -rf /opt/jboss/jboss-fuse/extras
+RUN rm -rf /opt/jboss/jboss-fuse/quickstarts
 
 
 # If the container is launched with re-mapped ports, these ENV vars should

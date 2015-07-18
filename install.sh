@@ -74,6 +74,8 @@ log4j.appender.stdout.layout.ConversionPattern=%d{ABSOLUTE} | %-5.5p | %-16.16t 
 echo '
 bind.address=0.0.0.0
 '>> jboss-fuse/etc/system.properties
-echo '' >> jboss-fuse/etc/users.properties
+echo '
+admin=admin,admin
+' >> jboss-fuse/etc/users.properties
 
-rm /opt/jboss/install.sh
+rm /opt/jboss/jboss-fuse/install.sh

@@ -25,10 +25,10 @@ RUN cd /opt/jboss
 
 # Download and extract the distro
 RUN curl -O $FUSE_DISTRO_URL
-RUN unzip $FUSE_ARTIFACT_ID-$FUSE_VERSION.zip -d /opt/jboss/jboss-fuse-$FUSE_VERSION
+RUN unzip $FUSE_ARTIFACT_ID-$FUSE_VERSION.zip -d /opt/jboss/
 RUN rm $FUSE_ARTIFACT_ID-$FUSE_VERSION.zip
 RUN mv /opt/jboss/jboss-fuse-$FUSE_VERSION /opt/jboss/jboss-fuse
-RUN chmod a+x jboss-fuse/bin/*
+RUN chmod a+x /opt/jboss/jboss-fuse/bin/*
 RUN rm /opt/jboss/jboss-fuse/bin/*.bat /opt/jboss/jboss-fuse/bin/start /opt/jboss/jboss-fuse/bin/stop /opt/jboss/jboss-fuse/bin/status /opt/jboss/jboss-fuse/bin/patch
 RUN rm -rf /opt/jboss/jboss-fuse/extras
 RUN rm -rf /opt/jboss/jboss-fuse/quickstarts
